@@ -1,0 +1,1 @@
+select * from {{ source('bronze', 't001w') }}

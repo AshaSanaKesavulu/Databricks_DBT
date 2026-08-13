@@ -1,0 +1,1 @@
+-- po type is an external table
