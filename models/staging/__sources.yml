@@ -18,4 +18,8 @@ sources:
       - name: t023t
       - name: vbak
       - name: vbap
-      
+  - name: silver
+    catalog: dev_cdl
+    schema: e2ematflow_silver
+    tables:
+      - name: e2e_sap_so_type
