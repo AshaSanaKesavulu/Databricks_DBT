@@ -1,3 +1,46 @@
-SELECT T1.VBELN,T2.ERDAT,T2.AUDAT,T2.AUART,T2.NETWR,T2.VKORG,T2.VTWEG,T2.SPART,T2.VKGRP,T2.KNUMV,T2.KUNNR,T2.AEDAT,T2.BUKRS_VF,T2.XBLNR,T1.POSNR,T1.MATNR,T1.MATKL,T1.ARKTX,T1.FMENG,T1.SPART,T1.NETWR,T1.WAERK,T1.ERDAT,T1.NETPR,T1.KPEIN,T1.KMEIN,T1.WERKS,T1.KWMENG,T1.VRKME,T1.MEINS,T2.AUGRU,T1.UEPOS,T1.SOURCE,T1.REGION
-FROM {{ ref('e2e_sap_sol') }} T1 
-JOIN  {{ ref('e2e_sap_soh') }} T2 ON (T1.VBELN=T2.VBELN);
+with
+    sol as (select * from {{ ref("e2e_sap_sol") }}),
+
+    soh as (select * from {{ ref("e2e_sap_soh") }}),
+
+    dn_so as (
+        select
+            t1.vbeln,
+            t2.erdat,
+            t2.audat,
+            t2.auart,
+            t2.netwr,
+            t2.vkorg,
+            t2.vtweg,
+            t2.spart,
+            t2.vkgrp,
+            t2.knumv,
+            t2.kunnr,
+            t2.aedat,
+            t2.bukrs_vf,
+            t2.xblnr,
+            t1.posnr,
+            t1.matnr,
+            t1.matkl,
+            t1.arktx,
+            t1.fmeng,
+            t1.spart,
+            t1.netwr,
+            t1.waerk,
+            t1.erdat,
+            t1.netpr,
+            t1.kpein,
+            t1.kmein,
+            t1.werks,
+            t1.kwmeng,
+            t1.vrkme,
+            t1.meins,
+            t2.augru,
+            t1.uepos,
+            t1.source,
+            t1.region
+        from sol t1
+        join soh t2 on (t1.vbeln = t2.vbeln)
+    )
+
+select * from dn_so

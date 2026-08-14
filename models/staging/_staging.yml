@@ -1,3 +1,46 @@
 models:
   - name: afpo
+    description: The table contains detailed records related to various processes, including order management, inventory tracking, and project analysis. It includes information such as order numbers, quantities, customer details, and project identifiers, which can be useful for operational reporting and analysis. Colleagues can utilize this data for tasks like tracking order statuses, managing inventory levels, and analyzing project performance over time.
+
+  - name: dev_cdl_config_table_details
+    description: The table contains configuration details related to various data tables in our system. It includes information on each table's name, its source directory, primary key, and the timestamps for the last initialization and delta loads. This data can be useful for understanding data lineage, managing data refresh schedules, and ensuring data integrity across different tables.
+
+  - name: ekbe
+    description: The table contains data related to various transactions and processes within a specific operational context. It includes fields that capture details such as source, region, document numbers, item quantities, monetary values, and timestamps. This data can be utilized for tracking transaction flows, analyzing operational performance, and generating reports on inventory and financial metrics.
+
+  - name: ekko
+    description: The table contains procurement-related data, which includes various identifiers and attributes associated with purchase orders. It can be used for analyzing procurement processes, tracking order statuses, and understanding supplier relationships. Key information includes order numbers, company codes, item details, and various dates related to the procurement lifecycle.
+
+  - name: ekpo
+    description: The table contains detailed information related to purchasing documents. It includes data on various attributes such as item numbers, quantities, pricing, and status indicators. This table can be used for analyzing procurement processes, tracking order statuses, and managing inventory levels. It is useful for understanding purchasing trends and ensuring compliance with procurement policies.
+
+  - name: kna1
+    description: The table contains customer master data, which includes various attributes related to customers such as names, addresses, contact information, and classification details. This data can be used for customer segmentation, analysis of customer demographics, and improving customer relationship management. It is useful for teams involved in sales, marketing, and customer support to better understand and engage with customers.
+
   - name: lfa1
+    description: SAP vendor master data containing comprehensive information about suppliers and vendors, including contact details, addresses, banking information, tax codes, and business classifications. This is the central repository for all vendor-related master data used across procurement and accounts payable processes.
+  - name: makt
+    description: The table contains product-related information, including details such as product identifiers, descriptions, and regional specifications. It can be used for analyzing product data across different regions, understanding product availability, and managing inventory. This data is useful for teams involved in product management, sales analysis, and supply chain operations.
+
+  - name: mara
+    description: The table contains data related to material management and inventory control. It includes various attributes such as material numbers, descriptions, dimensions, weights, and status indicators. This data can be used for analyzing inventory levels, tracking material movements, and managing supply chain processes.
+
+  - name: mkpf
+    description: SAP Material Document Header (MKPF) table containing header-level information for inventory movements and material transactions. Each record represents a material document with associated metadata including document types, dates, user information, and reference numbers for tracking inventory changes across the organization.
+
+  - name: mseg
+    description: The table contains detailed information related to purchasing documents. It includes data on various attributes such as item numbers, quantities, pricing, and status indicators. This table can be used for analyzing procurement processes, tracking order statuses, and managing inventory levels. It is useful for understanding purchasing trends and ensuring compliance with procurement policies.
+
+  - name: t001w
+    description: SAP plant master data containing detailed information about manufacturing plants, production facilities, and operational locations. This table stores comprehensive plant attributes including organizational assignments, address details, customer and vendor relationships, and operational parameters for each plant within the enterprise.
+
+  - name: t023t
+    description: Material group master data with multilingual descriptions. Contains material group codes and their corresponding descriptions in different languages, enabling consistent material categorization across the organization.
+
+
+  - name: vbak
+    description: The table contains sales document data, which includes various attributes related to sales orders. It can be used for analyzing sales performance, tracking order details, and understanding customer interactions. Key information includes sales document numbers, dates, customer details, and financial data, which can help in reporting and decision-making processes.
+
+
+  - name: vbap
+    description: The table contains detailed information about sales document items. It includes data such as item numbers, material numbers, quantities, pricing, and tax information. This data can be used for analyzing sales performance, tracking inventory levels, and understanding customer orders. It is useful for teams involved in sales analysis, inventory management, and financial reporting.
