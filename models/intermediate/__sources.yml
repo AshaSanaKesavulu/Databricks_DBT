@@ -1,0 +1,7 @@
+sources:
+  - name: silver
+    catalog: dev_cdl
+    schema: e2ematflow_silver
+    tables:
+      - name: e2e_sap_po_type
+      - name: e2e_sap_so_type

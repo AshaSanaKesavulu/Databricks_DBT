@@ -1,1 +1,1 @@
--- po type is an external table
+select * from {{ source('silver', 'e2e_sap_po_type') }}
