@@ -1,6 +1,6 @@
 with
-    vend as (select * from {{ ref("lfa1") }})
-    lfa1 as (
+    lfa1 as (select * from {{ ref("lfa1") }}),
+    vend as (
 
         select
             lifnr,
@@ -26,7 +26,7 @@ with
             txjcd,
             source,
             region
-        from vend
+        from lfa1
 
     )
 

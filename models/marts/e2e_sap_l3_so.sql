@@ -14,41 +14,43 @@ with
             dn.matnr,
             mt.maktx,
             dn.arktx,
-            dn.sol_netwr,
+            dn.sol_netwr as netwr,
             dn.kwmeng,
             dn.vrkme,
             dn.meins,
             dn.netpr,
             dn.kmein,
-            cu.land1,
-            cu.name1,
-            cu.name2,
-            cu.ort01,
-            cu.pstlz,
-            cu.regio,
-            cu.stras,
-            cu.telf1,
-            cu.telfx,
-            cu.adrnr,
-            dn.xblnr,
+            cu.land1 as cust_country,
+            cu.name1 as cust_name1,
+            cu.name2 as cust_name2,
+            cu.ort01 as cust_city,
+            cu.pstlz as cust_postalcode,
+            cu.regio as cust_region,
+            cu.stras as cust_street,
+            cu.telf1 as cust_telephone,
+            cu.telfx as cust_fax,
+            cu.adrnr as cust_address,
+            dn.xblnr as reference,
             concat(
                 substr(dn.audat, 6, 2),
                 '/',
                 substr(dn.audat, 9, 2),
                 '/',
                 substr(dn.audat, 1, 4)
-            ) as audat,
+            ) as documentdate,
             so.so_type,
             so.ebeln,
-            dn.werks,
-            plb.werks,
+            dn.werks as sendingplant,
+            plb.werks as receivingplant,
             dn.source,
             dn.region
+
         from dn_so dn
-        left outer join so_type so on (dn.vbeln = so.vbeln)
-        left outer join cust cu on (dn.kunnr = cu.kunnr)
-        left outer join matr mt on (dn.matnr = mt.matnr and mt.matnr <> '0')
-        left outer join plant plb on (plb.werks = dn.werks)
+
+        left outer join so_type so on dn.vbeln = so.vbeln
+        left outer join cust cu on dn.kunnr = cu.kunnr
+        left outer join matr mt on dn.matnr = mt.matnr and mt.matnr <> '0'
+        left outer join plant plb on plb.werks = dn.werks
 
     )
 

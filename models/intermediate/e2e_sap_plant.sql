@@ -4,7 +4,7 @@ with
 
         select
             werks,
-            name1,
+            name1 as plantdesc,
             bwkey,
             kunnr,
             lifnr,

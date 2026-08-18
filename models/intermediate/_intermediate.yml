@@ -1,0 +1,45 @@
+version: 2
+
+models:
+
+  - name: e2e_sap_cust---
+    description: Contains SAP customer master data, including customer identifiers and attributes used for customer analysis and downstream sales and order processing.
+
+  - name: e2e_sap_dn_po
+    description:  The table contains data related to purchase orders from the SAP system. It includes details such as order numbers, supplier information, item descriptions, quantities, and pricing. This data can be used for tracking purchase orders, analyzing supplier performance, and managing inventory levels.
+
+  - name: e2e_sap_dn_so
+    description:  The table contains data related to sales orders, capturing various attributes such as order numbers, dates, organizational details, and financial metrics. It can be used for analyzing sales performance, tracking order processing, and understanding customer purchasing behavior. Key use cases include reporting on sales trends, evaluating product performance, and managing inventory levels.
+
+  - name: e2e_sap_matr
+    description: The table contains information related to material types in the SAP system. It includes details such as material number, material type, source, and region. This data can be used for inventory management, material classification, and analyzing sourcing strategies.
+
+  - name: e2e_sap_matr_dochdr
+    description: The table contains data related to document headers from the SAP system. It includes key identifiers such as document number, year, document type, and various date fields. This data can be used for tracking and analyzing document flows, understanding regional distributions, and integrating with other SAP-related processes.
+
+  - name: e2e_sap_matr_seg
+    description: The table contains data related to material segments in the SAP system. It includes information such as material numbers, document numbers, quantities, and various identifiers. This data can be used for analyzing material movements, tracking inventory changes, and understanding procurement processes.
+
+  - name: e2e_sap_plant --
+    description: Contains SAP plant master data, including plant identifiers and organizational attributes used for inventory, material, procurement, and sales analysis.
+
+  - name: e2e_sap_po_type
+    description:  The table contains data related to purchase order types and their associated details. It includes information such as purchase order numbers, sales order numbers, and relevant identifiers. This data can be used for analyzing procurement processes, tracking order types, and understanding regional sourcing strategies.
+
+  - name: e2e_sap_poh
+    description:  The table contains data related to purchase order history. It includes key identifiers such as purchase order number, company code, vendor information, and various attributes related to procurement processes. This data can be used for analyzing purchasing trends, vendor performance, and compliance with procurement policies.
+
+  - name: e2e_sap_pol
+    description:  The table contains data related to purchase orders and their line items. It includes details such as order numbers, item descriptions, quantities, pricing, and associated organizational units. This data can be used for analyzing procurement processes, tracking order fulfillment, and managing inventory levels.
+
+  - name: e2e_sap_so_type
+    description:  The table contains data related to sales order types and their associated attributes. It includes information such as sales order numbers, source, region, and unique identifiers. This data can be used for analyzing sales order trends, understanding the distribution of order types across different regions, and tracking the source of sales orders.
+
+  - name: e2e_sap_soh
+    description:  The table contains sales order header data, which includes key details such as order numbers, dates, organizational units, and customer information. This data can be used for analyzing sales performance, tracking order processing timelines, and understanding customer purchasing patterns.
+
+  - name: e2e_sap_sol
+    description:  The table contains data related to sales order processing. It includes information such as order numbers, material numbers, quantities, pricing, and other relevant attributes. This data can be used for analyzing sales performance, tracking inventory levels, and understanding order fulfillment processes.
+
+  - name: e2e_sap_vend
+    description: The table contains information about vendor types, including identifiers and names associated with each vendor. It can be used to analyze vendor classifications, understand regional vendor distributions, and track the sources of vendor data. This data is useful for procurement analysis and vendor management.

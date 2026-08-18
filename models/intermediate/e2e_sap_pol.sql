@@ -5,8 +5,8 @@ with
         select
             ebeln,
             aedat,
-            cast(ebelp as bigint),
-            txz01,
+            cast(ebelp as bigint) as ebelp,
+            txz01 as lineitemdesc,
             matnr,
             bukrs,
             werks,
