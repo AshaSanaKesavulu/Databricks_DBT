@@ -33,7 +33,7 @@ with
         from mara t2
         left outer join makt t1 on (t2.matnr = t1.matnr)
         left outer join t023t t0 on (t2.matkl = t0.matkl)
-        where t0.spras = "E" and t1.spras = "E" and t2.matnr <> '0'
+        where t0.spras = 'E' and t1.spras = 'E' and t2.matnr <> '0'
 
     )
 
