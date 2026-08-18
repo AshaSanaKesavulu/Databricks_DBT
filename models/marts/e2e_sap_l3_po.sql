@@ -38,12 +38,12 @@ with
             ve.regio as ven_region,
             ve.stras as ven_street,
             ve.adrnr as ven_address,
-            pl.plantdesc as plantname,
-            pl.stras as pl_street,
-            pl.pfach as pl_pobox,
-            pl.pstlz as pl_postalcode,
-            pl.ort01 as pl_city,
-            po.po_type as po_type,
+            pl.plantname,
+            pl.pl_street,
+            pl.pl_pobox,
+            pl.pl_postalcode,
+            pl.pl_city,
+            po.po_type,
             po.vbeln,
             po.aufnr as mseg_aufnr,
             ma.budat as mkpf_budat,
@@ -57,8 +57,8 @@ with
         left outer join po_type po on (dn.ebeln = po.ebeln)
         left outer join matr_seg ms on (po.aufnr = ms.aufnr and ms.aufnr is not null and ms.aufnr <> '')
         left outer join matr_dochdr ma on (ma.mblnr = ms.mblnr)
-        left outer join plant pl on (dn.werks = pl.werks)
-        left outer join matr mt on (dn.matnr = mt.matnr and mt.matnr <> '0')
+        left outer join plant pl on (dn.werks = pl.plant_code)
+        left outer join matr mt on (dn.matnr = mt.mat_num and mt.mat_num <> '0')
         left outer join vend ve on (dn.lifnr = ve.lifnr)
 
     )

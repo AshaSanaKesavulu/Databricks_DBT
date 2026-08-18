@@ -3,16 +3,16 @@ with
     plant as (
 
         select
-            werks,
-            name1 as plantdesc,
+            werks as plant_code,
+            name1 as plantname,
             bwkey,
             kunnr,
             lifnr,
             name2,
-            stras,
-            pfach,
-            pstlz,
-            ort01,
+            stras as pl_street,
+            pfach as pl_pobox,
+            pstlz as pl_postalcode,
+            ort01 as pl_city,
             ekorg,
             vkorg,
             land1,

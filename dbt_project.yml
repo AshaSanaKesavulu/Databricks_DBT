@@ -44,3 +44,7 @@ models:
       +materialized: table
     marts:
       +materialized: table
+
+seeds:
+  databricks_dbt:
+    +catalog: dev_cdl
