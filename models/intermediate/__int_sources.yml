@@ -1,6 +1,6 @@
 sources:
   - name: silver
-    catalog: dev_cdl
+    database: dev_cdl # Change Catalog into database when switching to snowflake from databricks and vice versa
     schema: e2ematflow_silver
     tables:
       - name: e2e_sap_po_type

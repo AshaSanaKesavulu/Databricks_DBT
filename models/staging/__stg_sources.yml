@@ -1,6 +1,6 @@
 sources:
   - name: bronze
-    catalog: dev_cdl
+    database: dev_cdl # Change Catalog into database when switching to snowflake from databricks and vice versa
     schema: e2ematflow_bronze_csv
     tables:
       - name: afpo
