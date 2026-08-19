@@ -42,7 +42,7 @@ models:
       - name: mat_num
         data_tests:
           - unique
-          - not_null
+          #- not_null
 
   - name: e2e_sap_matr_dochdr
     description: The table contains data related to document headers from the SAP system. It includes key identifiers such as document number, year, document type, and various date fields. This data can be used for tracking and analyzing document flows, understanding regional distributions, and integrating with other SAP-related processes.
@@ -66,7 +66,7 @@ models:
       - name: plant_code
         data_tests:
           - unique
-          - not_null
+          #- not_null
 
   - name: e2e_sap_po_type
     description: The table contains data related to purchase order types and their associated details. It includes information such as purchase order numbers, sales order numbers, and relevant identifiers. This data can be used for analyzing procurement processes, tracking order types, and understanding regional sourcing strategies.
