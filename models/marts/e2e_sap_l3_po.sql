@@ -17,13 +17,7 @@ with
             dn.ebelp,
             dn.lineitemdesc,
             dn.ekgrp,
-            concat(
-                substr(dn.aedat, 6, 2),
-                '/',
-                substr(dn.aedat, 9, 2),
-                '/',
-                substr(dn.aedat, 1, 4)
-            ) as aedat,
+            formatty_date(dn.aedat) as aedat,
             dn.lifnr,
             dn.netwr,
             dn.netpr,
