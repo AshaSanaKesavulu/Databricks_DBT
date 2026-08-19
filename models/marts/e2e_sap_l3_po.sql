@@ -17,7 +17,7 @@ with
             dn.ebelp,
             dn.lineitemdesc,
             dn.ekgrp,
-            formatty_date(dn.aedat) as aedat,
+            {{ format_date(dn.aedat) }} as aedat,
             dn.lifnr,
             dn.netwr,
             dn.netpr,
