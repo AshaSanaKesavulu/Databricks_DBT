@@ -15,26 +15,88 @@ models:
     columns:
       - name: ebeln
         data_tests:
-          #- unique
           - not_null
-    
+          - relationships:
+              name: e2e_sap_dn_po_has_order_type
+              arguments:
+                to: ref('e2e_sap_po_type')
+                field: ebeln
+              config:
+                where: "trim(ebeln) <> ''"
+
       - name: ebelp
         data_tests:
-          #- unique
           - not_null
+
+      - name: werks
+        data_tests:
+          - relationships:
+              name: e2e_sap_dn_po_has_plant
+              arguments:
+                to: ref('e2e_sap_plant')
+                field: plant_code
+              config:
+                where: "trim(werks) <> ''"
+
+      - name: matnr
+        data_tests:
+          - relationships:
+              name: e2e_sap_dn_po_has_material
+              arguments:
+                to: ref('e2e_sap_matr')
+                field: mat_num
+              config:
+                where: "trim(matnr) not in ('', '0')"
+                severity: warn
 
   - name: e2e_sap_dn_so
     description: The table contains data related to sales orders, capturing various attributes such as order numbers, dates, organizational details, and financial metrics. It can be used for analyzing sales performance, tracking order processing, and understanding customer purchasing behavior. Key use cases include reporting on sales trends, evaluating product performance, and managing inventory levels.
     columns:
+      
       - name: sales_doc_num
         data_tests:
-          #- unique
           - not_null
-      
+          - relationships:
+              name: e2e_sap_dn_so_has_order_type
+              arguments:
+                to: ref('e2e_sap_so_type')
+                field: sales_doc_num
+              config:
+                where: "trim(sales_doc_num) <> ''"
+
       - name: sales_doc_item
         data_tests:
-          #- unique
           - not_null
+
+      - name: cust_num
+        data_tests:
+          - relationships:
+              name: e2e_sap_dn_so_has_customer
+              arguments:
+                to: ref('e2e_sap_cust')
+                field: cust_num
+              config:
+                where: "trim(cust_num) <> ''"
+
+      - name: mat_num
+        data_tests:
+          - relationships:
+              name: e2e_sap_dn_so_has_material
+              arguments:
+                to: ref('e2e_sap_matr')
+                field: mat_num
+              config:
+                where: "trim(mat_num) not in ('', '0')"
+
+      - name: plant_code
+        data_tests:
+          - relationships:
+              name: e2e_sap_dn_so_has_plant
+              arguments:
+                to: ref('e2e_sap_plant')
+                field: plant_code
+              config:
+                where: "trim(plant_code) <> ''"
 
   - name: e2e_sap_matr
     description: The table contains information related to material types in the SAP system. It includes details such as material number, material type, source, and region. This data can be used for inventory management, material classification, and analyzing sourcing strategies.
@@ -91,6 +153,14 @@ models:
         data_tests:
           #- unique
           - not_null
+          # e2e_sap_pol.columns.ebeln.data_tests
+          - relationships:
+              name: e2e_sap_pol_ebeln_has_purchase_header
+              arguments:
+                to: ref('e2e_sap_poh')
+                field: ebeln
+              config:
+                where: "trim(ebeln) <> ''"
 
   - name: e2e_sap_so_type
     description: The table contains data related to sales order types and their associated attributes. It includes information such as sales order numbers, source, region, and unique identifiers. This data can be used for analyzing sales order trends, understanding the distribution of order types across different regions, and tracking the source of sales orders.
@@ -115,6 +185,14 @@ models:
         data_tests:
           #- unique
           - not_null
+          # e2e_sap_sol.columns.vbeln.data_tests
+          - relationships:
+              name: e2e_sap_sol_vbeln_has_sales_header
+              arguments:
+                to: ref('e2e_sap_soh')
+                field: vbeln
+              config:
+                where: "trim(vbeln) <> ''"
 
   - name: e2e_sap_vend
     description: The table contains information about vendor types, including identifiers and names associated with each vendor. It can be used to analyze vendor classifications, understand regional vendor distributions, and track the sources of vendor data. This data is useful for procurement analysis and vendor management.
