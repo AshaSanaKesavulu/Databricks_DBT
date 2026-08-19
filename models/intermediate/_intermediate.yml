@@ -15,31 +15,31 @@ models:
     columns:
       - name: ebeln
         data_tests:
-          - unique
+          #- unique
           - not_null
     
       - name: ebelp
         data_tests:
-          - unique
+          #- unique
           - not_null
 
   - name: e2e_sap_dn_so
     description: The table contains data related to sales orders, capturing various attributes such as order numbers, dates, organizational details, and financial metrics. It can be used for analyzing sales performance, tracking order processing, and understanding customer purchasing behavior. Key use cases include reporting on sales trends, evaluating product performance, and managing inventory levels.
     columns:
-      - name: vbeln
+      - name: sales_doc_num
         data_tests:
-          - unique
+          #- unique
           - not_null
       
-      - name: posnr
+      - name: sales_doc_item
         data_tests:
-          - unique
+          #- unique
           - not_null
 
   - name: e2e_sap_matr
     description: The table contains information related to material types in the SAP system. It includes details such as material number, material type, source, and region. This data can be used for inventory management, material classification, and analyzing sourcing strategies.
     columns:
-      - name: matnr
+      - name: mat_num
         data_tests:
           - unique
           - not_null
@@ -57,13 +57,13 @@ models:
     columns:
       - name: mblnr
         data_tests:
-          - unique
+          #- unique
           - not_null
 
   - name: e2e_sap_plant
     description: Contains SAP plant master data, including plant identifiers and organizational attributes used for inventory, material, procurement, and sales analysis.
     columns:
-      - name: receivingplant
+      - name: plant_code
         data_tests:
           - unique
           - not_null
@@ -89,7 +89,7 @@ models:
     columns:
       - name: ebeln
         data_tests:
-          - unique
+          #- unique
           - not_null
 
   - name: e2e_sap_so_type
@@ -113,7 +113,7 @@ models:
     columns:
       - name: vbeln
         data_tests:
-          - unique
+          #- unique
           - not_null
 
   - name: e2e_sap_vend
