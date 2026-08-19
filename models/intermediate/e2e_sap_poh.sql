@@ -6,7 +6,7 @@ with
             ebeln,
             bukrs,
             aedat,
-            lifnr,
+            cast(lifnr as VARCHAR(16777216)) as lifnr,
             ekorg,
             ekgrp,
             zterm,
