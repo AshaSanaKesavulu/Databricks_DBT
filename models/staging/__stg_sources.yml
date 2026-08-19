@@ -4,7 +4,6 @@ sources:
     schema: e2ematflow_bronze_csv
     tables:
       - name: afpo
-      - name: dev_cdl_config_table_details
       - name: ekbe
       - name: ekko
       - name: ekpo
