@@ -14,52 +14,52 @@ with
     l3_so as (
 
         select
-            dn.vbeln,
-            dn.posnr,
-            dn.kunnr,
-            dn.matnr,
+            dn.sales_doc_num, 
+            dn.sales_doc_item,
+            dn.cust_num,
+            dn.mat_num,
             mt.maktx,
             dn.arktx,
-            dn.sol_netwr as netwr,
+            dn.sol_netwr,
             dn.kwmeng,
             dn.vrkme,
             dn.meins,
             dn.netpr,
             dn.kmein,
-            cu.land1 as cust_country,
-            cu.name1 as cust_name1,
-            cu.name2 as cust_name2,
-            cu.ort01 as cust_city,
-            cu.pstlz as cust_postalcode,
-            cu.regio as cust_region,
-            cu.stras as cust_street,
-            cu.telf1 as cust_telephone,
-            cu.telfx as cust_fax,
-            cu.adrnr as cust_address,
-            dn.xblnr as reference,
+            cu.cust_country,
+            cu.cust_name1 ,
+            cu.cust_name2 ,
+            cu.cust_city,
+            cu.cust_postalcode,
+            cu.cust_region,
+            cu.cust_street,
+            cu.cust_telephone,
+            cu.cust_fax,
+            cu.cust_address,
+            dn.reference,
             concat(
-                substr(dn.audat, 6, 2),
+                substr(dn.documentdate, 6, 2),
                 '/',
-                substr(dn.audat, 9, 2),
+                substr(dn.documentdate, 9, 2),
                 '/',
-                substr(dn.audat, 1, 4)
+                substr(dn.documentdate, 1, 4)
             ) as documentdate,
             so.so_type,
             so.ebeln,
-            dn.werks as sendingplant,
-            plb.werks as receivingplant,
+            dn.plant_code as sendingplant,
+            plb.plant_code as receivingplant,
             dn.source,
             dn.region
 
         from dn_so dn
 
-        left outer join so_type so on dn.vbeln = so.vbeln
+        left outer join so_type so on dn.sales_doc_num = so.sales_doc_num
 
-        left outer join cust cu on dn.kunnr = cu.kunnr
+        left outer join cust cu on dn.cust_num = cu.cust_num
 
-        left outer join matr mt on dn.matnr = mt.matnr and mt.matnr <> '0'
+        left outer join matr mt on dn.mat_num = mt.mat_num and mt.mat_num <> '0'
 
-        left outer join plant plb on plb.werks = dn.werks
+        left outer join plant plb on plb.plant_code = dn.plant_code
 
     )
 
