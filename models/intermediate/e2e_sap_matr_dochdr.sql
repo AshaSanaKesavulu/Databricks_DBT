@@ -6,8 +6,8 @@ with
             mblnr,
             mjahr,
             blart,
-            {{- format_sap_date('bldat') -}} as bldat,
-            {{- format_sap_date('budat') -}} as budat,
+            {{format_sap_date('bldat')}} as bldat,
+            {{format_sap_date('budat')}} as budat,
             source,
             region
         from mkpf

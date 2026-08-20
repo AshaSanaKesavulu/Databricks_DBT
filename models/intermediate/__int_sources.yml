@@ -5,3 +5,4 @@ sources:
     tables:
       - name: e2e_sap_po_type
       - name: e2e_sap_so_type
+      - name: e2e_sap_matr_type

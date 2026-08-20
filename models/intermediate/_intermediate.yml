@@ -4,6 +4,9 @@ models:
 
   - name: e2e_sap_cust
     description: Contains SAP customer master data, including customer identifiers and attributes used for customer analysis and downstream sales and order processing.
+    config:
+      group: sap_procurement
+      access: public
     columns:
       - name: cust_num
         data_tests:
@@ -57,6 +60,9 @@ models:
 
   - name: e2e_sap_dn_so
     description: The table contains data related to sales orders, capturing various attributes such as order numbers, dates, organizational details, and financial metrics. It can be used for analyzing sales performance, tracking order processing, and understanding customer purchasing behavior. Key use cases include reporting on sales trends, evaluating product performance, and managing inventory levels.
+    config:
+      group: sap_procurement
+      access: public
     data_tests:
       - unique_key_combination:
           arguments:
@@ -136,6 +142,9 @@ models:
 
   - name: e2e_sap_plant
     description: Contains SAP plant master data, including plant identifiers and organizational attributes used for inventory, material, procurement, and sales analysis.
+    config:
+      group: sap_procurement
+      access: public
     columns:
       - name: plant_code
         data_tests:
@@ -184,6 +193,9 @@ models:
 
   - name: e2e_sap_so_type
     description: The table contains data related to sales order types and their associated attributes. It includes information such as sales order numbers, source, region, and unique identifiers. This data can be used for analyzing sales order trends, understanding the distribution of order types across different regions, and tracking the source of sales orders.
+    config:
+      group: sap_procurement
+      access: public
     columns:
       - name: sales_doc_num
         data_tests:
@@ -222,7 +234,11 @@ models:
       - name: posnr
         data_tests:
           - not_null_or_blank
-
+  - name: stg_sap_matr_type
+    description: "Staging pass-through for raw SAP material type data, exposed for cross-project use."
+    config:
+      group: sap_procurement
+      access: public
   - name: e2e_sap_vend
     description: The table contains information about vendor types, including identifiers and names associated with each vendor. It can be used to analyze vendor classifications, understand regional vendor distributions, and track the sources of vendor data. This data is useful for procurement analysis and vendor management.
     columns:
