@@ -1,5 +1,5 @@
 with
-    mkpf as (select * from {{- ref("mkpf") -}}),
+    mkpf as (select * from   {{ref("mkpf")}}),
     matr_dochdr as (
 
         select
