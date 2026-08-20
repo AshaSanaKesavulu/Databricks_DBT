@@ -2,7 +2,7 @@
 
 {{
     config(
-        target_schema='snapsot_demo',
+        target_schema='dbt_demo_snapshot_demo',
         unique_key='plant_code',
         strategy='check',
         check_cols='all'
