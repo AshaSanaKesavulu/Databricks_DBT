@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: e2e_sap_l3_so
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - sales_doc_num
+              - sales_doc_item
+
+  - name: e2e_sap_l3_po
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - ebeln
+              - ebelp
+          config:
+            severity: warn

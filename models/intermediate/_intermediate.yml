@@ -8,10 +8,16 @@ models:
       - name: cust_num
         data_tests:
           - unique
-          - not_null
+          - not_null_or_blank
 
   - name: e2e_sap_dn_po
     description: The table contains data related to purchase orders from the SAP system. It includes details such as order numbers, supplier information, item descriptions, quantities, and pricing. This data can be used for tracking purchase orders, analyzing supplier performance, and managing inventory levels.
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - ebeln
+              - ebelp
     columns:
       - name: ebeln
         data_tests:
@@ -51,6 +57,12 @@ models:
 
   - name: e2e_sap_dn_so
     description: The table contains data related to sales orders, capturing various attributes such as order numbers, dates, organizational details, and financial metrics. It can be used for analyzing sales performance, tracking order processing, and understanding customer purchasing behavior. Key use cases include reporting on sales trends, evaluating product performance, and managing inventory levels.
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - sales_doc_num
+              - sales_doc_item
     columns:
       
       - name: sales_doc_num
@@ -104,7 +116,7 @@ models:
       - name: mat_num
         data_tests:
           - unique
-          #- not_null
+          - not_null_or_blank
 
   - name: e2e_sap_matr_dochdr
     description: The table contains data related to document headers from the SAP system. It includes key identifiers such as document number, year, document type, and various date fields. This data can be used for tracking and analyzing document flows, understanding regional distributions, and integrating with other SAP-related processes.
@@ -128,7 +140,7 @@ models:
       - name: plant_code
         data_tests:
           - unique
-          #- not_null
+          - not_null_or_blank
 
   - name: e2e_sap_po_type
     description: The table contains data related to purchase order types and their associated details. It includes information such as purchase order numbers, sales order numbers, and relevant identifiers. This data can be used for analyzing procurement processes, tracking order types, and understanding regional sourcing strategies.
@@ -148,11 +160,16 @@ models:
 
   - name: e2e_sap_pol
     description: The table contains data related to purchase orders and their line items. It includes details such as order numbers, item descriptions, quantities, pricing, and associated organizational units. This data can be used for analyzing procurement processes, tracking order fulfillment, and managing inventory levels.
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - ebeln
+              - ebelp
     columns:
       - name: ebeln
         data_tests:
-          #- unique
-          - not_null
+          - not_null_or_blank
           # e2e_sap_pol.columns.ebeln.data_tests
           - relationships:
               name: e2e_sap_pol_ebeln_has_purchase_header
@@ -161,6 +178,9 @@ models:
                 field: ebeln
               config:
                 where: "trim(ebeln) <> ''"
+      - name: ebelp
+        data_tests:
+          - not_null_or_blank
 
   - name: e2e_sap_so_type
     description: The table contains data related to sales order types and their associated attributes. It includes information such as sales order numbers, source, region, and unique identifiers. This data can be used for analyzing sales order trends, understanding the distribution of order types across different regions, and tracking the source of sales orders.
@@ -180,11 +200,17 @@ models:
 
   - name: e2e_sap_sol
     description: The table contains data related to sales order processing. It includes information such as order numbers, material numbers, quantities, pricing, and other relevant attributes. This data can be used for analyzing sales performance, tracking inventory levels, and understanding order fulfillment processes.
+    
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - vbeln
+              - posnr
     columns:
       - name: vbeln
         data_tests:
-          #- unique
-          - not_null
+          - not_null_or_blank
           # e2e_sap_sol.columns.vbeln.data_tests
           - relationships:
               name: e2e_sap_sol_vbeln_has_sales_header
@@ -193,6 +219,9 @@ models:
                 field: vbeln
               config:
                 where: "trim(vbeln) <> ''"
+      - name: posnr
+        data_tests:
+          - not_null_or_blank
 
   - name: e2e_sap_vend
     description: The table contains information about vendor types, including identifiers and names associated with each vendor. It can be used to analyze vendor classifications, understand regional vendor distributions, and track the sources of vendor data. This data is useful for procurement analysis and vendor management.
@@ -200,4 +229,4 @@ models:
       - name: lifnr
         data_tests:
           - unique
-          - not_null
+          - not_null_or_blank
