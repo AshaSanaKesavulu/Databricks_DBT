@@ -7,13 +7,7 @@ with
         select
             t1.vbeln as sales_doc_num,
             t2.erdat,
-            concat(
-                substr(t2.audat, 6, 2),
-                '/',
-                substr(t2.audat, 9, 2),
-                '/',
-                substr(t2.audat, 1, 4)
-            ) as documentdate,
+            {{ format_sap_date('t2.audat') }} as documentdate,
             t2.auart,
             t2.netwr,
             t2.vkorg,

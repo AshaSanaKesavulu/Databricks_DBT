@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: e2e_sap_l3_so
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - sales_doc_num
+              - sales_doc_item
+
+  - name: e2e_sap_l3_po
+    data_tests:
+      - unique_key_combination:
+          arguments:
+            combination_of_columns:
+              - ebeln
+              - ebelp
+          config:
+            severity: warn
+
+  - name: e2e_sap_ag_mf_so
+    config:
+      access: public
+      contract:
+        enforced: true
+    columns:
+      - name: cust_num
+        data_type: int
+      - name: so_count
+        data_type: bigint
+      - name: cust_name1
+        data_type: string
+      - name: company_code
+        data_type: int
+      - name: mat_num
+        data_type: string
+      - name: netwr
+        data_type: double
+      - name: plant_code
+        data_type: int
+      - name: plantname
+        data_type: string
+      - name: so_type
+        data_type: string
+      - name: material_type
+        data_type: string
+      - name: source
+        data_type: string
+      - name: region
+        data_type: string
+
+    versions:
+      - v: 1
+        config:
+          alias: e2e_sap_ag_mf_so_v1
+          defined_in: e2e_sap_ag_mf_so_v1
+          # deprecation_date: 2026-08-14
+      - v: 2
+        config:
+          alias: e2e_sap_ag_mf_so_v2
+          defined_in: e2e_sap_ag_mf_so_v2
+        columns:
+          - name: customer_number
+            data_type: int
+          - include: all
+            exclude: [cust_num]

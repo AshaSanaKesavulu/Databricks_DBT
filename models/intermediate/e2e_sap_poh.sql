@@ -11,7 +11,7 @@ with
             ekgrp,
             zterm,
             bsart,
-            cast(regexp_replace(wkurs, ',', '') as float) as wkurs,
+            {{ parse_sap_number('wkurs') }} as wkurs,
             source,
             region
         from ekko

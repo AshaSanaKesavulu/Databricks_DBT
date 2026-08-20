@@ -6,7 +6,7 @@ with
             erdat,
             audat,
             auart,
-            cast(regexp_replace(netwr, ',', '') as float) as netwr,
+            {{ parse_sap_number('netwr') }} as netwr,
             vkorg,
             vtweg,
             spart,

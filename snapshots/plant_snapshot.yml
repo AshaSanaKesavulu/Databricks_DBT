@@ -1,0 +1,11 @@
+snapshots:
+  - name: plant_snapshot
+    relation: ref('e2e_sap_plant')
+    config:
+      catalog: dev_cdl
+      schema: snapshot_demo
+      unique_key: plant_code
+      strategy: check # Check strategy
+      check_cols: 'all' # Checks based on these columns
+      hard_deletes: ignore # ignores the record if deleted
+      

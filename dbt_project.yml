@@ -48,3 +48,7 @@ models:
 seeds:
   databricks_dbt:
     +catalog: dev_cdl
+
+snapshots: 
+  databricks_dbt:
+    +catalog: dev_cdl
