@@ -11,6 +11,8 @@ with
 
     plant as (select * from {{ ref("e2e_sap_plant") }}),
 
+    comcd as (select * from {{ ref('e2e_sap_comcd') }}),
+
     l3_so as (
 
         select
@@ -18,6 +20,7 @@ with
             dn.sales_doc_item,
             dn.cust_num,
             dn.mat_num,
+            dn.company_code,
             mt.maktx,
             dn.arktx,
             dn.sol_netwr,
@@ -37,13 +40,7 @@ with
             cu.cust_fax,
             cu.cust_address,
             dn.reference,
-            concat(
-                substr(dn.documentdate, 6, 2),
-                '/',
-                substr(dn.documentdate, 9, 2),
-                '/',
-                substr(dn.documentdate, 1, 4)
-            ) as documentdate,
+            dn.documentdate,
             so.so_type,
             so.ebeln,
             dn.plant_code as sendingplant,
@@ -60,6 +57,8 @@ with
         left outer join matr mt on dn.mat_num = mt.mat_num and mt.mat_num <> '0'
 
         left outer join plant plb on plb.plant_code = dn.plant_code
+
+        left outer join comcd cc on cc.bukrs = dn.company_code
 
     )
 
