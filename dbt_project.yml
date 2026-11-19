@@ -37,7 +37,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   databricks_dbt:
-    +catalog: dev_cdl
+    +database: dev_cdl
     staging:
       +materialized: view
     intermediate:
@@ -47,8 +47,8 @@ models:
 
 seeds:
   databricks_dbt:
-    +catalog: dev_cdl
+    +database: dev_cdl
 
 snapshots: 
   databricks_dbt:
-    +catalog: dev_cdl
+    +database: dev_cdl
