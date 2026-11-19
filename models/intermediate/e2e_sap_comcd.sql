@@ -1,1 +1,0 @@
-select * from {{ source('silver', 'e2e_sap_comcd') }}
