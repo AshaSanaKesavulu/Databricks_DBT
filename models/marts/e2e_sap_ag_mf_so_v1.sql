@@ -25,7 +25,7 @@ with
         left outer join so_type so on (dn.sales_doc_num = so.sales_doc_num)
         left outer join plant pl on (dn.plant_code = pl.plant_code)
         left outer join matr_type mt on (dn.mat_num = mt.matnr and mt.matnr <> '0')
-        where dn.sol_netwr > 0 and aedat <> ''
+        where dn.sol_netwr > 0 and aedat is not null
         group by
             dn.cust_num,
             cu.cust_name1,
